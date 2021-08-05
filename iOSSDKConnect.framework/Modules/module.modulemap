@@ -1,0 +1,11 @@
+framework module iOSSDKConnect {
+  umbrella header "iOSSDKConnect.h"
+
+  export *
+  module * { export * }
+}
+
+module iOSSDKConnect.Swift {
+    header "iOSSDKConnect-Swift.h"
+    requires objc
+}
