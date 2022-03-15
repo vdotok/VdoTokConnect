@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "VdoTokConnect"
-  spec.version      = "1.0.5"
+  spec.version      = "1.0.6"
   spec.summary      = "VdoTokConnectSDK allows connectivity over MQTT Protocol to send and receive all type of messages."
 
  
@@ -27,10 +27,9 @@ Pod::Spec.new do |spec|
    spec.source       = { :git => "https://github.com/vdotok/VdoTokConnect.git", :tag => "#{spec.version}" }
 
 
-   spec.dependency  'CocoaMQTT'
 
 
-  spec.vendored_frameworks = 'iOSSDKConnect.framework'
+  spec.vendored_frameworks = 'iOSSDKConnect.framework', 'CocoaMQTT.framework', 'CocoaAsyncSocket.framework'
 
   spec.swift_version = "5.0"
 
