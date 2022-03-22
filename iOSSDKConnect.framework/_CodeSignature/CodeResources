@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/iOSSDKConnect-Swift.h</key>
 		<data>
-		STCHL/Toszd2xubrtyyUHLa4jys=
+		ZOOfm/j9EoXNggyB15yaOz2L3wQ=
 		</data>
 		<key>Headers/iOSSDKConnect.h</key>
 		<data>
@@ -14,31 +14,19 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4WnVHuQqK0KkK/TI5/nyijPwXfg=
+		AaR1HDru/tXRGyTeoSy7tMBHiGg=
 		</data>
 		<key>Modules/iOSSDKConnect.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		TySx1LryD8Cr4GSZz42+QLc3wdc=
-		</data>
-		<key>Modules/iOSSDKConnect.swiftmodule/Project/arm64.swiftsourceinfo</key>
-		<data>
-		TySx1LryD8Cr4GSZz42+QLc3wdc=
+		6+UahwCdPAE5N7FBt4r96K93VNo=
 		</data>
 		<key>Modules/iOSSDKConnect.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		23HLN1zD9F4Xz8XqcePKAS2+ns4=
+		xq9slKnmPdqAOGpXt1H/tpc0Ouk=
 		</data>
 		<key>Modules/iOSSDKConnect.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		9XsbTUYmWPz+qx4Wnck5+9ehkiQ=
-		</data>
-		<key>Modules/iOSSDKConnect.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		23HLN1zD9F4Xz8XqcePKAS2+ns4=
-		</data>
-		<key>Modules/iOSSDKConnect.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		9XsbTUYmWPz+qx4Wnck5+9ehkiQ=
+		PxuOW6O/wYngFxpiLsgAuj6Yeek=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,7 +39,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cygf9Hjm+ojVrUdja4jqSANLOp18LqfWSHqgSbffMyY=
+			y+9ROWO68K2KO74U0e6MXgb64WcKymZ6oWIm9k5el/g=
 			</data>
 		</dict>
 		<key>Headers/iOSSDKConnect.h</key>
@@ -65,42 +53,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uXECfBTXfwStomApJg5Irehrcfupo1GkwsV8oNDXAf0=
-			</data>
-		</dict>
-		<key>Modules/iOSSDKConnect.swiftmodule/Project/arm64.swiftsourceinfo</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			uXECfBTXfwStomApJg5Irehrcfupo1GkwsV8oNDXAf0=
+			pT/hUcV7k3FHcmaCTNp1UaTH7E4br1KtVtw1xBqWsmw=
 			</data>
 		</dict>
 		<key>Modules/iOSSDKConnect.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DULINeA10LNykn5TeW89h8MXhBBl1zKLxbtIvrkZ+Sw=
+			yxeKmqOv03aiX+yPR40fyO5wh/DYLtyhNdA6uLi5LhM=
 			</data>
 		</dict>
 		<key>Modules/iOSSDKConnect.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			E5MjJgiU3mrugpFtJ1YWuF1f8BGF93uuxaYh3Eio4iE=
-			</data>
-		</dict>
-		<key>Modules/iOSSDKConnect.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			DULINeA10LNykn5TeW89h8MXhBBl1zKLxbtIvrkZ+Sw=
-			</data>
-		</dict>
-		<key>Modules/iOSSDKConnect.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			E5MjJgiU3mrugpFtJ1YWuF1f8BGF93uuxaYh3Eio4iE=
+			NGvbftSeFgktTh0PCLjHIs1lBzt3KXbL8AFk6Ih7fEg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
