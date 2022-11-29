@@ -6,6 +6,6 @@ framework module CocoaMQTT {
 }
 
 module CocoaMQTT.Swift {
-    header "CocoaMQTT-Swift.h"
-    requires objc
+  header "CocoaMQTT-Swift.h"
+  requires objc
 }
