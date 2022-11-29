@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "VdoTokConnect"
-  spec.version      = "1.1.0"
+  spec.version      = "1.1.1"
   spec.summary      = "VdoTokConnectSDK allows connectivity over MQTT Protocol to send and receive all type of messages."
 
  

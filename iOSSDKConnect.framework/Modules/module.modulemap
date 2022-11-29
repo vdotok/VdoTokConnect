@@ -6,6 +6,6 @@ framework module iOSSDKConnect {
 }
 
 module iOSSDKConnect.Swift {
-    header "iOSSDKConnect-Swift.h"
-    requires objc
+  header "iOSSDKConnect-Swift.h"
+  requires objc
 }
