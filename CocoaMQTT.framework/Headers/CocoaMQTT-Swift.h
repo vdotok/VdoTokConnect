@@ -230,8 +230,8 @@ using UInt = size_t;
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import CocoaAsyncSocket;
 @import Foundation;
+@import MqttCocoaAsyncSocket;
 @import ObjectiveC;
 @import Security;
 #endif
@@ -257,7 +257,7 @@ using UInt = size_t;
 
 /// MQTT Client
 /// note:
-/// GCDAsyncSocket need delegate to extend NSObject
+/// MGCDAsyncSocket need delegate to extend NSObject
 SWIFT_CLASS("_TtC9CocoaMQTT9CocoaMQTT")
 @interface CocoaMQTT : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -271,7 +271,7 @@ SWIFT_CLASS("_TtC9CocoaMQTT9CocoaMQTT")
 
 /// MQTT Client
 /// note:
-/// GCDAsyncSocket need delegate to extend NSObject
+/// MGCDAsyncSocket need delegate to extend NSObject
 SWIFT_CLASS("_TtC9CocoaMQTT10CocoaMQTT5")
 @interface CocoaMQTT5 : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -301,19 +301,19 @@ enum CocoaMQTTConnState : uint8_t;
 SWIFT_PROTOCOL("_TtP9CocoaMQTT18CocoaMQTT5Delegate_")
 @protocol CocoaMQTT5Delegate
 ///
-- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didConnectAck:(enum CocoaMQTTCONNACKReasonCode)ack connAckData:(MqttDecodeConnAck * _Nonnull)connAckData;
+- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didConnectAck:(enum CocoaMQTTCONNACKReasonCode)ack connAckData:(MqttDecodeConnAck * _Nullable)connAckData;
 ///
 - (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didPublishMessage:(CocoaMQTT5Message * _Nonnull)message id:(uint16_t)id;
 ///
-- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didPublishAck:(uint16_t)id pubAckData:(MqttDecodePubAck * _Nonnull)pubAckData;
+- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didPublishAck:(uint16_t)id pubAckData:(MqttDecodePubAck * _Nullable)pubAckData;
 ///
-- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didPublishRec:(uint16_t)id pubRecData:(MqttDecodePubRec * _Nonnull)pubRecData;
+- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didPublishRec:(uint16_t)id pubRecData:(MqttDecodePubRec * _Nullable)pubRecData;
 ///
-- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didReceiveMessage:(CocoaMQTT5Message * _Nonnull)message id:(uint16_t)id publishData:(MqttDecodePublish * _Nonnull)publishData;
+- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didReceiveMessage:(CocoaMQTT5Message * _Nonnull)message id:(uint16_t)id publishData:(MqttDecodePublish * _Nullable)publishData;
 ///
-- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didSubscribeTopics:(NSDictionary * _Nonnull)success failed:(NSArray<NSString *> * _Nonnull)failed subAckData:(MqttDecodeSubAck * _Nonnull)subAckData;
+- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didSubscribeTopics:(NSDictionary * _Nonnull)success failed:(NSArray<NSString *> * _Nonnull)failed subAckData:(MqttDecodeSubAck * _Nullable)subAckData;
 ///
-- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didUnsubscribeTopics:(NSArray<NSString *> * _Nonnull)topics UnsubAckData:(MqttDecodeUnsubAck * _Nonnull)UnsubAckData;
+- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didUnsubscribeTopics:(NSArray<NSString *> * _Nonnull)topics UnsubAckData:(MqttDecodeUnsubAck * _Nullable)UnsubAckData;
 ///
 - (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didReceiveDisconnectReasonCode:(enum CocoaMQTTDISCONNECTReasonCode)reasonCode;
 ///
@@ -329,7 +329,7 @@ SWIFT_PROTOCOL("_TtP9CocoaMQTT18CocoaMQTT5Delegate_")
 /// This method will be called if enable  <code>allowUntrustCACertificate</code>
 - (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didReceive:(SecTrustRef _Nonnull)trust completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
 ///
-- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didPublishComplete:(uint16_t)id pubCompData:(MqttDecodePubComp * _Nonnull)pubCompData;
+- (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didPublishComplete:(uint16_t)id pubCompData:(MqttDecodePubComp * _Nullable)pubCompData;
 ///
 - (void)mqtt5:(CocoaMQTT5 * _Nonnull)mqtt5 didStateChangeTo:(enum CocoaMQTTConnState)state;
 @end
@@ -525,7 +525,7 @@ typedef SWIFT_ENUM(uint8_t, CocoaMQTTQoS, closed) {
 /// Exactly once delivery
   CocoaMQTTQoSQos2 = 2,
 /// !!! Used SUBACK frame only
-  CocoaMQTTQoSFAILTURE = 0x80,
+  CocoaMQTTQoSFAILURE = 0x80,
 };
 
 typedef SWIFT_ENUM(uint8_t, CocoaMQTTSUBACKReasonCode, closed) {
@@ -550,20 +550,20 @@ SWIFT_CLASS("_TtC9CocoaMQTT15CocoaMQTTSocket")
 @end
 
 
-@class GCDAsyncSocket;
+@class MGCDAsyncSocket;
 @class NSData;
 
-@interface CocoaMQTTSocket (SWIFT_EXTENSION(CocoaMQTT)) <GCDAsyncSocketDelegate>
-- (void)socket:(GCDAsyncSocket * _Nonnull)sock didConnectToHost:(NSString * _Nonnull)host port:(uint16_t)port;
-- (void)socket:(GCDAsyncSocket * _Nonnull)sock didReceiveTrust:(SecTrustRef _Nonnull)trust completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
-- (void)socketDidSecure:(GCDAsyncSocket * _Nonnull)sock;
-- (void)socket:(GCDAsyncSocket * _Nonnull)sock didWriteDataWithTag:(NSInteger)tag;
-- (void)socket:(GCDAsyncSocket * _Nonnull)sock didReadData:(NSData * _Nonnull)data withTag:(NSInteger)tag;
-- (void)socketDidDisconnect:(GCDAsyncSocket * _Nonnull)sock withError:(NSError * _Nullable)err;
+@interface CocoaMQTTSocket (SWIFT_EXTENSION(CocoaMQTT)) <MGCDAsyncSocketDelegate>
+- (void)socket:(MGCDAsyncSocket * _Nonnull)sock didConnectToHost:(NSString * _Nonnull)host port:(uint16_t)port;
+- (void)socket:(MGCDAsyncSocket * _Nonnull)sock didReceiveTrust:(SecTrustRef _Nonnull)trust completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
+- (void)socketDidSecure:(MGCDAsyncSocket * _Nonnull)sock;
+- (void)socket:(MGCDAsyncSocket * _Nonnull)sock didWriteDataWithTag:(NSInteger)tag;
+- (void)socket:(MGCDAsyncSocket * _Nonnull)sock didReadData:(NSData * _Nonnull)data withTag:(NSInteger)tag;
+- (void)socketDidDisconnect:(MGCDAsyncSocket * _Nonnull)sock withError:(NSError * _Nullable)err;
 @end
 
 typedef SWIFT_ENUM(uint8_t, CocoaMQTTUNSUBACKReasonCode, closed) {
-  CocoaMQTTUNSUBACKReasonCodeGrantedQoS0 = 0x00,
+  CocoaMQTTUNSUBACKReasonCodeSuccess = 0x00,
   CocoaMQTTUNSUBACKReasonCodeNoSubscriptionExisted = 0x11,
   CocoaMQTTUNSUBACKReasonCodeUnspecifiedError = 0x80,
   CocoaMQTTUNSUBACKReasonCodeImplementationSpecificError = 0x83,
@@ -641,7 +641,8 @@ SWIFT_CLASS("_TtC9CocoaMQTT18MqttDecodeUnsubAck")
 
 SWIFT_CLASS("_TtC9CocoaMQTT21MqttPublishProperties")
 @interface MqttPublishProperties : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 typedef SWIFT_ENUM(uint8_t, PayloadFormatIndicator, closed) {
