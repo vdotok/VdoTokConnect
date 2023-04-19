@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "VdoTokConnect"
-  spec.version      = "1.1.7"
+  spec.version      = "1.1.8"
   spec.summary      = "VdoTokConnectSDK allows connectivity over MQTT Protocol to send and receive all type of messages."
 
  
@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
 
 
 
-  spec.author             = { "Sohaib Hussain" => "sohaib.hussain@norgic.com" }
+  spec.author       = { "Syed Raza Abbas" => "raza.abbas@vdotok.com" }
 
 
 
